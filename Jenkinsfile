@@ -7,6 +7,10 @@ pipeline {
               sh "mvn clean package -DskipTests=true"
               archive 'target/*.jar' //this is second new comment
             }
-        }   
-    }
+        }
+      stage('Unit Tests - JUnit and Jacoco') {
+     	 steps {
+        	sh "mvn test"
+     	    }   
+        }
 }
